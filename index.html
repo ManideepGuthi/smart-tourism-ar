@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Tourism Guide AR</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- A-Frame & AR.js -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.min.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        background: #f8f9fa;
+        font-family: 'Poppins', sans-serif;
+      }
+      .hero {
+        padding: 3rem 1rem;
+        text-align: center;
+      }
+      .marker-note {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid hero">
+      <h1 class="display-5 fw-bold">📸 Smart Tourism Guide</h1>
+      <p class="lead">
+        Scan famous place markers below to explore historical facts in AR!
+      </p>
+      <a class="btn btn-primary" href="#ar-view">Start AR</a>
+      <div class="marker-note">* Use mobile browser with camera access</div>
+    </div>
+
+    <!-- AR Scene Starts -->
+    <a-scene embedded arjs id="ar-view">
+      <!-- Marker Setup -->
+      <a-marker type="pattern" url="markers/taj-marker.patt">
+        <a-text
+          value="Taj Mahal - Built in 1632 by Shah Jahan"
+          color="white"
+          position="0 0.5 0"
+        ></a-text>
+      </a-marker>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+    <!-- AR Scene Ends -->
+  </body>
+</html>
